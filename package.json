@@ -1,0 +1,63 @@
+{
+  "name": "@mixspa/app",
+  "version": "0.1.0",
+  "description": "This is a library for create multi-spa in one app",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">= 6"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "babel": "babel src --out-dir lib --ignore 'src/**/*.spec.js'",
+    "babel:watch": "watch 'yarn babel' ./src",
+    "build": "yarn clean && yarn babel",
+    "lint": "eslint src",
+    "test": "jest --coverage --passWithNoTests --config config/jest.config.js",
+    "test:watch": "watch 'yarn test' ./src"
+  },
+  "dependencies": {
+    "@mixspa/app": "^0.4.1",
+    "@mixspa/loader": "^0.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^5.9.0",
+    "eslint-plugin-jest": "^22.0.0",
+    "jest": "^24.1.0",
+    "watch": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixspa/mixspa-core.git"
+  },
+  "keywords": [
+    "lib",
+    "node",
+    "babel",
+    "jest",
+    "eslint",
+    "security",
+    "circleci"
+  ],
+  "author": "Cao Xiaoqi<xqcao@xqcao.com>",
+  "contributors": [
+    "Xiaoqi Cao"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mixspa/mixspa-core/issues"
+  },
+  "homepage": "https://github.com/mixspa/mixspa-core#readme"
+}

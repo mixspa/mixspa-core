@@ -1,0 +1,97 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/mixspa-core
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install package dependencies
+          command: yarn install
+      - run:
+          name: Compile
+          command: yarn build
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - save_cache:
+          key: app-build-cache-{{ checksum "package.json" }}
+          paths:
+            - lib
+  test:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/mixspa-core
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Upgrade yarn
+          command: sudo npm install --global yarn
+      - run:
+          name: ESlint
+          command: yarn lint
+      - run:
+          name: Security Check
+          command: yarn audit
+      - run:
+          name: Test
+          command: yarn test
+
+  release:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/mixspa-core
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          key: app-build-cache-{{ checksum "package.json" }}
+      - run:
+          name: Git release
+          command: bash ./ci/release.sh
+  publish:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/mixspa-core
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          key: app-build-cache-{{ checksum "package.json" }}
+      - run:
+          name: Set Config
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Npm release
+          command: bash ./ci/publish.sh
+
+workflows:
+  version: 2
+  build_test_release_publish:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - release:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
+      - publish:
+          requires:
+            - release
+          filters:
+            tags:
+              only: /^v.*/
