@@ -671,6 +671,11 @@
   resolved "https://registry.yarnpkg.com/@mixspa/app/-/app-0.4.1.tgz#b618cf58fe41de7f99a8b61b2f363da1c56c3e14"
   integrity sha512-MUjdPjdGfXfop318c5Ttrmud4pjErdJTGnS34WOehhPLPdkjBFSKpHUabMHxKoMLo09gmkpYSVxqKT0f07bheg==
 
+"@mixspa/events@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@mixspa/events/-/events-0.1.1.tgz#986ecd51e5bf7d2d4b709ad372cbd55624e6bf4a"
+  integrity sha512-XNeUT89yTEy1yiWojk65BvUvkK1kce+0i6ZQOf4WUt97g/fWpTXD6Ayb6cgV0WExUZXDKn5XyBVEZ5s3hUAsug==
+
 "@mixspa/loader@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@mixspa/loader/-/loader-0.4.0.tgz#228dbac4a64e3401adf9f8589420cfa70793ad55"
