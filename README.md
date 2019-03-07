@@ -63,7 +63,7 @@ Add app info looks like this:
 ```js
 import Mixspa from '@mixspa/core'
 
-Mixspa.add({
+Mixspa.register({
   tag: 'app-demo',
   name: 'AppDemo',
   assets: ['https://www.app-demo.com/app.js', 'https://www.app-demo.com/app.css']
