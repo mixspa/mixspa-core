@@ -1,5 +1,5 @@
 # mixspa-core
-mixspa-core is a library for micro-frontend.
+mixspa-core is a base library for micro-frontend.
 
 ## Current Status:
 
@@ -9,9 +9,21 @@ mixspa-core is a library for micro-frontend.
 
 [![NPM](https://nodei.co/npm/@mixspa/core.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/@mixspa/core/)
 
-## How to use?
+## What's the purpose for this library
 
-### Define an app
+The aim of this library what to be.
+
+![Architecture Micro-Web](./doc/micro-web.png)
+
+The following targets:
+* A component or module can be an app to be load dynamically.
+* A component or module can choice a different framework or library by itself.
+* A component or module together with the backend service should have the whole and independent business.
+
+
+## What the api for this library?
+
+### 1. Define an app
 
 According the following to define a app. The `id` & `render` must be provided.
 
@@ -40,7 +52,7 @@ The Mixspa will create a custom element for one app.
 About more details & the apis for `element`, please reference here:
 [CustomElement](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)
 
-### Register one app
+### 2. Register one app
 
 ```js
 import Mixspa from '@mixspa/core'
@@ -52,7 +64,7 @@ Mixspa.register({
 });
 ```
 
-### Load one app
+### 3. Load one app
 
 ```js
 import Mixspa from '@mixspa/core'
@@ -71,7 +83,7 @@ Mixspa.loadSimple('https://www.app-simple-demo.com/app.js').then(() => {
 });
 ```
 
-### Event in Mixspa
+### 4. Event in Mixspa
 
 ```js
 import Mixspa from '@mixspa/core'
