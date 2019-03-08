@@ -1,5 +1,5 @@
 # mixspa-core
-mixspa-core is core for mixspa.
+mixspa-core is a library for micro-frontend.
 
 ## Current Status:
 
@@ -11,9 +11,9 @@ mixspa-core is core for mixspa.
 
 ## How to use?
 
-### Define app for Mixspa
+### Define an app
 
-According the following to define a app. The `name` & `render` must exist.
+According the following to define a app. The `id` & `render` must be provided.
 
 ```js
 import Mixspa from '@mixspa/core';
@@ -36,11 +36,42 @@ Mixspa.define({
 });
 ```
 
-The Mixspa will create a custom element for use.
-About more details & the api of parameter `element` please reference here:
+The Mixspa will create a custom element for one app.
+About more details & the apis for `element`, please reference here:
 [CustomElement](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)
 
-### Event for Mixspa
+### Register one app
+
+```js
+import Mixspa from '@mixspa/core'
+
+Mixspa.register({
+  id: 'app-id',
+  tag: 'app-demo',
+  assets: ['https://www.app-demo.com/app.js', 'https://www.app-demo.com/app.css']
+});
+```
+
+### Load one app
+
+```js
+import Mixspa from '@mixspa/core'
+
+Mixspa.load('app-id').then(appInfo => {
+  let el = document.createElement(appInfo.tag);
+  el.attributeOne = 'attribute one';
+  document.getElementById('app-container').appendChild(el);
+});
+
+/* Load simple app, you must provide the 'tag name' */
+Mixspa.loadSimple('https://www.app-simple-demo.com/app.js').then(() => {
+  let el = document.createElement('app-simple-demo');
+  el.attributeOne = 'attribute one';
+  document.getElementById('app-container').appendChild(el);
+});
+```
+
+### Event in Mixspa
 
 ```js
 import Mixspa from '@mixspa/core'
@@ -57,33 +88,8 @@ Mixspa.emit('[module]:[action]', message);
 Mixspa.emit('test:update', 'Hello Test');
 ```
 
-### Load app for Mixspa
+About more details of Event, please reference [@mixspa/events](https://www.npmjs.com/package/@mixspa/events)
 
-Add app info looks like this:
-```js
-import Mixspa from '@mixspa/core'
-
-Mixspa.register({
-  tag: 'app-demo',
-  name: 'AppDemo',
-  assets: ['https://www.app-demo.com/app.js', 'https://www.app-demo.com/app.css']
-});
-
-Mixspa.load('AppDemo').then(appInfo => {
-  let el = document.createElement(appInfo.tag);
-  el.attributeOne = 'attribute one';
-  document.getElementById('app-container').appendChild(el);
-});
-
-// Load simple app.
-Mixspa.loadSimple('https://www.app-simple-demo.com/app.js').then(() => {
-  let el = document.createElement('app-simple-demo');
-  el.attributeOne = 'attribute one';
-  document.getElementById('app-container').appendChild(el);
-});
-```
-
-NOTE: For simple app, you should provide the `tag name`.
 
 ## License
 

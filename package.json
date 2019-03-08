@@ -1,7 +1,7 @@
 {
   "name": "@mixspa/core",
-  "version": "0.4.1",
-  "description": "This is a library for create multi-spa in one app",
+  "version": "0.4.2",
+  "description": "This is a library for create a micro-frontend app",
   "main": "lib/index.js",
   "engines": {
     "node": ">= 6"
