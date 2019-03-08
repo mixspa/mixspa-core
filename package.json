@@ -1,6 +1,6 @@
 {
   "name": "@mixspa/core",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "This is a library for create a micro-frontend app",
   "main": "lib/index.js",
   "engines": {
@@ -19,9 +19,7 @@
     "test:watch": "watch 'yarn test' ./src"
   },
   "dependencies": {
-    "@mixspa/app": "^0.4.1",
-    "@mixspa/events": "^0.1.1",
-    "@mixspa/loader": "^0.4.0"
+    "@mixspa/events": "^0.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
