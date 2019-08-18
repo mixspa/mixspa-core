@@ -18,9 +18,7 @@
     "test": "jest --coverage --passWithNoTests --config config/jest.config.js",
     "test:watch": "watch 'yarn test' ./src"
   },
-  "dependencies": {
-    "@mixspa/events": "^0.3.0"
-  },
+  "dependencies": { },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
