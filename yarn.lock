@@ -859,10 +859,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@mixspa/events@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@mixspa/events/-/events-0.2.0.tgz#7f4c29df50c577fe983a1930eb356d803859591c"
-  integrity sha512-phndmb966ysx0fZ2GncPudSWQJXvEBJ4cAHpHO94/HxODmXOD7h+ZJjNcwz6S47Vq8OtCoQfqEmbuH72ah4sTA==
+"@mixspa/events@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@mixspa/events/-/events-0.3.0.tgz#155229675d8fb29dac9b7f18bd8faa1a79fe4c0f"
+  integrity sha512-u7uxcV8qQxDnDd0Pzgs5i2xS22tMZKDa/DCCv0P+6L8gZK1cfBeB/Q+Q60QOLv6C9DIRdfeFjRk0Hii2LnYdSw==
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
@@ -978,9 +978,9 @@ acorn-walk@^6.0.1:
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
 acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1, acorn@^6.0.7:
   version "6.2.1"
