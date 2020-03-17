@@ -1,4 +1,4 @@
-import MixspaLink from './MixspaLink';
+import MixspaLink from './index';
 
 describe('MixspaLink', () => {
   let listener;

@@ -1,4 +1,4 @@
-class MixspaEvent {
+class MixspaEvents {
   static on(type, callback) {
     let listener = { handleEvent: (e) => callback(e.detail) };
     window.addEventListener(type, listener);
@@ -16,4 +16,4 @@ class MixspaEvent {
   }
 }
 
-export default MixspaEvent;
+export default MixspaEvents;

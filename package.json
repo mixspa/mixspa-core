@@ -1,6 +1,6 @@
 {
   "name": "@mixspa/core",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "This is a library for create a micro-frontend app",
   "main": "lib/index.js",
   "engines": {
@@ -18,7 +18,7 @@
     "test": "jest --coverage --passWithNoTests --config config/jest.config.js",
     "test:watch": "watch 'yarn test' ./src"
   },
-  "dependencies": { },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",

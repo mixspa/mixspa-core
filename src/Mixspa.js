@@ -1,22 +1,17 @@
-import loadApp from './loadApp';
-import defineApp from './defineApp';
-import registerApp from './registerApp';
-import loadSimpleApp from './loadSimpleApp';
-import getAttributes from './getAttributes';
-import MixspaEvent from '@mixspa/events';
-import { onLink, offLink, emitLink } from './linkEvent';
+import MixspaApp from './app';
+import MixspaLink from './link';
+import MixspaEvents from './events';
+import MixspaContext from './context';
 
 const Mixspa = {
-  on: MixspaEvent.on,
-  emit: MixspaEvent.emit,
-  onLink: onLink,
-  offLink: offLink,
-  emitLink: emitLink,
-  load: loadApp,
-  define: defineApp,
-  register: registerApp,
-  loadSimple: loadSimpleApp,
-  getAttributes: getAttributes
+  on: MixspaEvents.on,
+  emit: MixspaEvents.emit,
+  onLink: MixspaLink.onLink,
+  offLink: MixspaLink.offLink,
+  emitLink: MixspaLink.emitLink,
+  define: MixspaApp.define,
+  getApp: MixspaContext.getApp,
+  register: MixspaContext.registerApp
 };
 
 export default Mixspa;
