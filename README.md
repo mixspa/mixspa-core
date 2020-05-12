@@ -64,20 +64,13 @@ Mixspa.register({
 });
 ```
 
-### 3. Load one app
+### 3. Get one app and load
 
 ```js
 import Mixspa from '@mixspa/core'
 
-Mixspa.load('app-id').then(appInfo => {
-  let el = document.createElement(appInfo.tag);
-  el.attributeOne = 'attribute one';
-  document.getElementById('app-container').appendChild(el);
-});
-
-/* Load simple app, you must provide the 'tag name' */
-Mixspa.loadSimple('https://www.app-simple-demo.com/app.js').then(() => {
-  let el = document.createElement('app-simple-demo');
+Mixspa.getApp('app-id').load([Element]).then(app => {
+  let el = document.createElement(app.tag);
   el.attributeOne = 'attribute one';
   document.getElementById('app-container').appendChild(el);
 });
@@ -88,20 +81,44 @@ Mixspa.loadSimple('https://www.app-simple-demo.com/app.js').then(() => {
 ```js
 import Mixspa from '@mixspa/core'
 /*
-Mixspa.on('[module]:[action]', listener);
+Mixspa.on('[module]:[action]', listener);  // bind event
 */
 Mixspa.on('test:update', (message) => {
   console.log(message);
 });
 
 /*
-Mixspa.emit('[module]:[action]', message);
+Mixspa.off('[module]:[action]', listener);  // unbind event
+*/
+Mixspa.off('test:update', listener);
+
+/*
+Mixspa.emit('[module]:[action]', message);  // emit event
 */
 Mixspa.emit('test:update', 'Hello Test');
 ```
 
-About more details of Event, please reference [@mixspa/events](https://www.npmjs.com/package/@mixspa/events)
+### 5. Link in Mixspa
 
+```js
+import Mixspa from '@mixspa/core'
+/*
+Mixspa.onLink(handler);  // bind link change event
+*/
+Mixspa.onLink((url) => {
+  console.log(url);
+});
+
+/*
+Mixspa.offLink(handler);  // unbind link change event
+*/
+Mixspa.offLink(handler);
+
+/*
+Mixspa.emitLink(url);  // emit link change event
+*/
+Mixspa.emitLink('http://test.url');
+```
 
 ## License
 

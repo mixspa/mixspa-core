@@ -4,7 +4,7 @@
   "description": "This is a library for create a micro-frontend app",
   "main": "lib/index.js",
   "engines": {
-    "node": ">= 6"
+    "node": ">= 10"
   },
   "files": [
     "lib"
@@ -27,11 +27,10 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
     "@babel/preset-env": "^7.5.5",
     "babel-core": "^7.0.0-bridge",
-    "babel-eslint": "^10.0.2",
-    "babel-jest": "^24.8.0",
-    "eslint": "^5.15.0",
-    "eslint-plugin-jest": "^22.13.6",
-    "jest": "^24.8.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
+    "eslint": "^7.0.0",
+    "jest": "^26.0.1",
     "watch": "^1.0.2"
   },
   "repository": {

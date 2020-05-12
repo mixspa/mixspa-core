@@ -5,6 +5,7 @@ import MixspaContext from './context';
 
 const Mixspa = {
   on: MixspaEvents.on,
+  off: MixspaEvents.off,
   emit: MixspaEvents.emit,
   onLink: MixspaLink.onLink,
   offLink: MixspaLink.offLink,
