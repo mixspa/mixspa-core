@@ -32,9 +32,6 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Upgrade yarn
-          command: sudo npm install --global yarn
-      - run:
           name: ESlint
           command: yarn lint
       - run:
