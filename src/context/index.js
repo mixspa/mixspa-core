@@ -7,7 +7,7 @@ class MixspaContext {
     if (MixspaContext.hasApp(appInfo.id)) {
       MixspaContext.updateApp(appInfo);
     } else {
-      MixspaStorage.put(appInfo.id, MixspaContext.createApp(appInfo));
+      MixspaStorage.put(appInfo.id, MixspaContext._createApp(appInfo));
     }
   }
 
@@ -23,11 +23,11 @@ class MixspaContext {
     //TODO: update assets appInfo
   }
 
-  static createApp(appInfo) {
-    return new App(appInfo, appInfo.assets.map(asset => MixspaContext.getOrCreateAsset(asset)));
+  static _createApp(appInfo) {
+    return new App(appInfo, appInfo.assets.map(asset => MixspaContext._getOrCreateAsset(asset)));
   }
 
-  static getOrCreateAsset(assetInfo) {
+  static _getOrCreateAsset(assetInfo) {
     if (!MixspaStorage.has(assetInfo)) {
       MixspaStorage.put(assetInfo, MixspaAssets.createAsset(assetInfo));
     }

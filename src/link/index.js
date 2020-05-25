@@ -5,8 +5,8 @@ class MixspaLink {
     return MixspaEvents.on('mixspa:url:changed', handler);
   }
 
-  static offLink(handler) {
-    MixspaEvents.off('mixspa:url:changed', handler);
+  static offLink(listener) {
+    MixspaEvents.off('mixspa:url:changed', listener);
   }
 
   static emitLink(url) {

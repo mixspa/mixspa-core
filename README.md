@@ -81,9 +81,9 @@ Mixspa.getApp('app-id').load([Element]).then(app => {
 ```js
 import Mixspa from '@mixspa/core'
 /*
-Mixspa.on('[module]:[action]', listener);  // bind event
+let listener = Mixspa.on('[module]:[action]', callback);  // bind event
 */
-Mixspa.on('test:update', (message) => {
+let listener = Mixspa.on('test:update', (message) => {
   console.log(message);
 });
 
@@ -103,16 +103,16 @@ Mixspa.emit('test:update', 'Hello Test');
 ```js
 import Mixspa from '@mixspa/core'
 /*
-Mixspa.onLink(handler);  // bind link change event
+let listener = Mixspa.onLink(handler);  // bind link change event
 */
-Mixspa.onLink((url) => {
+let listener = Mixspa.onLink((url) => {
   console.log(url);
 });
 
 /*
-Mixspa.offLink(handler);  // unbind link change event
+Mixspa.offLink(listener);  // unbind link change event
 */
-Mixspa.offLink(handler);
+Mixspa.offLink(listener);
 
 /*
 Mixspa.emitLink(url);  // emit link change event
