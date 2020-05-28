@@ -1,6 +1,6 @@
 {
   "name": "@mixspa/core",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "This is a library for create a micro-frontend app",
   "main": "lib/index.js",
   "engines": {

@@ -11,7 +11,7 @@ class App {
 
   load(parentEl = document.body) {
     if (this.isLoaded()) {
-      Promise.resolve(this);
+      return Promise.resolve(this);
     }
 
     return new Promise((resolve, reject) => {
