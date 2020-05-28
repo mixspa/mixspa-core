@@ -13,7 +13,7 @@ class Asset {
 
   load(parentEl = document.body) {
     if (this.isLoaded()) {
-      return Promise.resolve();
+      return Promise.resolve(this);
     }
     return new Promise((resolve, reject) => {
       this._loadActions.push(resolve);

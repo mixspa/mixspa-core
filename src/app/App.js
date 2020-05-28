@@ -10,18 +10,20 @@ class App {
   }
 
   load(parentEl = document.body) {
-    if (this._status === INIT) {
-      this._status = LOADING;
-      let leftAssets = this._assets.filter(asset => !asset.isLoaded());
-      Promise.all(leftAssets.map(asset => asset.load(parentEl))).then(this._onLoad).catch(this._onError);
+    if (this.isLoaded()) {
+      Promise.resolve(this);
     }
-    if (this._status === LOADING) {
-      return new Promise((resolve, reject) => {
-        this._loadActions.push(resolve);
-        this._errorActions.push(reject);
-      });
-    }
-    return Promise.resolve();
+
+    return new Promise((resolve, reject) => {
+      this._loadActions.push(resolve);
+      this._errorActions.push(reject);
+
+      if (this._status === INIT) {
+        this._status = LOADING;
+        let leftAssets = this._assets.filter(asset => !asset.isLoaded());
+        Promise.all(leftAssets.map(asset => asset.load(parentEl))).then(this._onLoad).catch(this._onError);
+      }
+    });
   }
 
   get id() {
@@ -34,6 +36,10 @@ class App {
 
   get status() {
     return this._status;
+  }
+
+  isLoaded() {
+    return this._status == SUCCESS || this.status == ERROR;
   }
 
   _onLoad = () => {
